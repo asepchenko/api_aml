@@ -1,0 +1,15 @@
+opencollection: 1.0.0
+
+info:
+  name: AML_API
+
+request:
+  variables:
+    - name: pickup_id
+      value: ""
+bundled: false
+extensions:
+  bruno:
+    ignore:
+      - node_modules
+      - .git

@@ -1,0 +1,21 @@
+info:
+  name: notif-read
+  type: http
+  seq: 11
+
+http:
+  method: PUT
+  url: "{{baseurl}}/api/driver/notifications/:id/read"
+  params:
+    - name: id
+      value: "2"
+      type: path
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

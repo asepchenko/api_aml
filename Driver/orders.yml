@@ -1,0 +1,27 @@
+info:
+  name: orders
+  type: http
+  seq: 12
+
+http:
+  method: GET
+  url: "{{baseurl}}/api/driver/orders?status=all&page=1&limit=10"
+  params:
+    - name: status
+      value: all
+      type: query
+    - name: page
+      value: "1"
+      type: query
+    - name: limit
+      value: "10"
+      type: query
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

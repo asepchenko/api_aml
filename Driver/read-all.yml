@@ -1,0 +1,17 @@
+info:
+  name: read-all
+  type: http
+  seq: 15
+
+http:
+  method: PUT
+  url: "{{baseurl}}/api/driver/notifications/read-all"
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

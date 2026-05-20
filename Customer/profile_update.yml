@@ -1,0 +1,32 @@
+info:
+  name: profile_update
+  type: http
+  seq: 11
+
+http:
+  method: PUT
+  url: "{{baseurl}}/api/customer/profile"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"name\": \"Pak Ali\",\r
+
+      \  \"email\": null,\r
+
+      \  \"phone\": \"081314044756\",\r
+
+      \  \"address\": \"Pemalang\",\r
+
+      \  \"company\": null\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

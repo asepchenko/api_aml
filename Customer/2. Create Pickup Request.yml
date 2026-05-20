@@ -1,0 +1,83 @@
+info:
+  name: 2. Create Pickup Request
+  type: http
+  seq: 5
+
+http:
+  method: POST
+  url: "{{baseurl}}/api/customer/pickup"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "customer_name": "Ahmad Cyntia",
+        "pickup_address": "Jl. Sudirman No. 123, Jakarta Pusat",
+        "item": {
+          "koli": 2,
+          "weight_kg": 2.5,
+          "description": "Laptop dan charger"
+        },
+        "schedule": {
+          "date": "17 October 2025",
+          "time_range": "14:30"
+        },
+        "instructions": "Rumah cat hijau, sebelah warung",
+        "pic": {
+          "name": "Ahmad Rizki",
+          "phone": "081234567890",
+          "whatsapp": 1
+        },
+        "destination": {
+          "city": "Jakarta",
+          "address": "Jl. Thamrin No. 456"
+        }
+      }
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+runtime:
+  scripts:
+    - type: after-response
+      code: "var jsonData = res.getBody();\r
+
+        \r
+
+        test('Status code is 201', function() {\r
+
+        \    expect(res.getStatus()).to.equal(201);\r
+
+        });\r
+
+        \r
+
+        test('Pickup created successfully', function() {\r
+
+        \    expect(jsonData.success).to.be.true;\r
+
+        \    expect(jsonData.data).to.have.property('id');\r
+
+        \    expect(jsonData.data).to.have.property('code');\r
+
+        });\r
+
+        \r
+
+        if (jsonData.data && jsonData.data.id) {\r
+
+        \    pm.collectionVariables.set('pickup_id', jsonData.data.id);\r
+
+        \    console.log('Pickup ID saved: ' + jsonData.data.id);\r
+
+        }"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Membuat pickup request baru. Memanggil sp_customer_pickup_create_json.

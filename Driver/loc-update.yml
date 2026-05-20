@@ -1,0 +1,39 @@
+info:
+  name: loc-update
+  type: http
+  seq: 18
+
+http:
+  method: POST
+  url: "{{baseurl}}/api/driver/location/update"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: "{\r
+
+      \  \"trip_id\": \"TRP-001140\",\r
+
+      \  \"latitude\": -6.2088,\r
+
+      \  \"longitude\": 106.8456,\r
+
+      \  \"address\": \"Jl. Lampung Metro\",\r
+
+      \  \"city\" : \"Lampung\",\r
+
+      \  \"region\" : \"Lampung\",\r
+
+      \  \"timestamp\" : \"2026-01-22 10:30:00\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

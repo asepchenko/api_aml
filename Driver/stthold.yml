@@ -1,0 +1,31 @@
+info:
+  name: stthold
+  type: http
+  seq: 16
+
+http:
+  method: POST
+  url: "{{baseurl}}/api/driver/scan/stt/hold"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: "{\r
+
+      \  \"trip_id\": \"TRP-00000\",\r
+
+      \  \"stt_number\": \"A0011275\",\r
+
+      \  \"reason\": \"Koli berada di belakang truk\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

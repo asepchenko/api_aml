@@ -1,0 +1,26 @@
+info:
+  name: Login
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{baseurl}}/api/auth/login"
+  body:
+    type: json
+    data: "{\r
+
+      \    \"username\" : \"ali@gmail.com\",\r
+
+      \    \"password\" : \"password\",\r
+
+      \    \"platform\" : \"android\"\r
+
+      }"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

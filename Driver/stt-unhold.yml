@@ -1,0 +1,31 @@
+info:
+  name: stt-unhold
+  type: http
+  seq: 17
+
+http:
+  method: POST
+  url: "{{baseurl}}/api/driver/scan/stt/unhold"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: "{\r
+
+      \  \"trip_id\": \"TRP-001168\",\r
+
+      \  \"stt_number\": \"TEST001\",\r
+
+      \  \"reason\": \"ketemu di RANTAU PRAPAT\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

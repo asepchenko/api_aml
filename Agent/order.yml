@@ -1,0 +1,29 @@
+info:
+  name: order
+  type: http
+  seq: 7
+
+http:
+  method: GET
+  url: "{{baseurl}}/api/agent/orders?status=On Process Delivery&page=1&limit=10"
+  params:
+    - name: status
+      value: On Process Delivery
+      type: query
+    - name: page
+      value: "1"
+      type: query
+    - name: limit
+      value: "10"
+      type: query
+  body:
+    type: multipart-form
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,33 @@
+info:
+  name: scanstt
+  type: http
+  seq: 6
+
+http:
+  method: POST
+  url: "{{baseurl}}/api/loading/scan/koli"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: "{\r
+
+      \  \"tripId\": \"TRP-000002\",\r
+
+      \  \"manifestId\": \"MFT-0000004240\",\r
+
+      \  \"sttNumber\": \"A0011275\",\r
+
+      \  \"koliId\": \"A0011275-6\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

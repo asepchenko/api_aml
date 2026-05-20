@@ -1,0 +1,37 @@
+info:
+  name: manifest-closed
+  type: http
+  seq: 19
+
+http:
+  method: POST
+  url: "{{baseurl}}/api/driver/manifest/closed"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: "{\r
+
+      \  \"trip_id\": \"TRP-001140\",\r
+
+      \  \"manifest\" : \"MFT-55000001\",\r
+
+      \  \"address\": \"Jl. Lampung Metro\",\r
+
+      \  \"city\" : \"Lampung\",\r
+
+      \  \"region\" : \"Lampung\",\r
+
+      \  \"timestamp\" : \"2026-01-31 16:11:00\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
