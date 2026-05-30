@@ -1,7 +1,7 @@
 info:
   name: pickup_accept
   type: http
-  seq: 5
+  seq: 19
 
 http:
   method: PUT

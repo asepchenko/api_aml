@@ -1,0 +1,42 @@
+info:
+  name: Login Driver (run first)
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{baseurl}}/api/auth/login"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+          "username" : "dtest@gmail.com",
+          "password" : "password",
+          "platform" : "android"
+      }
+
+runtime:
+  scripts:
+    - type: after-response
+      code: "const json = res.getBody();\r
+
+        test('Login OK', () => expect(json.success).to.be.true);\r
+
+        if (json.data && json.data.token) {\r
+
+        \  pm.collectionVariables.set('token', json.data.token);\r
+
+        \  console.log('Token saved');\r
+
+        }"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: POST /api/auth/login — JWT sub = driver/user id untuk SP.

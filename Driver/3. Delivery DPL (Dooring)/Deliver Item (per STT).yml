@@ -1,0 +1,34 @@
+info:
+  name: Deliver Item (per STT)
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{baseurl}}/api/driver/delivery/32/items/ORD-0000066120/deliver"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "recipient": "Budi Santoso",
+        "description": "Diterima lengkap",
+        "scan_code": "COLLY-001",
+        "scan_lat": -6.2,
+        "scan_lng": 106.8,
+        "scan_device": "android-driver"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |-
+  SP: sp_driver_delivery_deliver_item_json
+
+  Wajib: recipient. Ulangi per STT sampai dpl_status = Delivered.

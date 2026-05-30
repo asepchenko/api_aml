@@ -1,0 +1,24 @@
+info:
+  name: Scan Colly STT
+  type: http
+  seq: 5
+
+http:
+  method: POST
+  url: "{{baseurl}}/api/driver/delivery/32/scan/koli"
+  body:
+    type: json
+    data: |-
+      {
+        "sttNumber": "A0037908",
+        "koliId": "A0037908-1"
+      }
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

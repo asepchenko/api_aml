@@ -1,11 +1,11 @@
 info:
-  name: read-all
+  name: Start Process (Open → On Process Delivery)
   type: http
-  seq: 14
+  seq: 1
 
 http:
   method: PUT
-  url: "{{baseurl}}/api/driver/notifications/read-all"
+  url: "{{baseurl}}/api/driver/delivery/32/start-process"
   auth:
     type: bearer
     token: "{{token}}"
@@ -15,3 +15,5 @@ settings:
   timeout: 0
   followRedirects: true
   maxRedirects: 5
+
+docs: "SP: sp_driver_delivery_start_process_json"

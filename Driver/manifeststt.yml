@@ -1,7 +1,7 @@
 info:
   name: manifeststt
   type: http
-  seq: 13
+  seq: 12
 
 http:
   method: GET
