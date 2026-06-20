@@ -10,7 +10,7 @@ http:
     type: json
     data: |-
       {
-          "username" : "tedi@gmail.com",
+          "username" : "yudhimahelfin@gmail.com",
           "password" : "password",
           "platform" : "android"
       }

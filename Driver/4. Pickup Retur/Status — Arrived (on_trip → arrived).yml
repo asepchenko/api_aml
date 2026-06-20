@@ -1,11 +1,11 @@
 info:
   name: Status — Arrived (on_trip → arrived)
   type: http
-  seq: 4
+  seq: 6
 
 http:
   method: PUT
-  url: "{{base_url}}/driver/pickup-retur/{{pickup_retur_id}}/status"
+  url: "{{baseurl}}/api/driver/pickup-retur/RET-2605300001/status"
   headers:
     - name: Content-Type
       value: application/json
@@ -15,7 +15,9 @@ http:
       {
         "action": "arrived"
       }
-  auth: inherit
+  auth:
+    type: bearer
+    token: "{{token}}"
 
 settings:
   encodeUrl: true

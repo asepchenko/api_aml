@@ -8,15 +8,12 @@ http:
   url: "{{baseurl}}/api/auth/login"
   body:
     type: json
-    data: "{\r
-
-      \    \"username\" : \"robbyharisandy90@gmail.com\",\r
-
-      \    \"password\" : \"password\",\r
-
-      \    \"platform\" : \"android\"\r
-
-      }"
+    data: |-
+      {
+          "username" : "hexsa@gmail.com",
+          "password" : "password",
+          "platform" : "android"
+      }
   auth: inherit
 
 settings:

@@ -5,7 +5,7 @@ info:
 
 http:
   method: POST
-  url: "{{baseurl}}/api/driver/delivery/32/items/ORD-0000066120/deliver"
+  url: "{{baseurl}}/api/driver/delivery/46/items/ORD-0000067200/deliver"
   headers:
     - name: Content-Type
       value: application/json
@@ -20,7 +20,9 @@ http:
         "scan_lng": 106.8,
         "scan_device": "android-driver"
       }
-  auth: inherit
+  auth:
+    type: bearer
+    token: "{{token}}"
 
 settings:
   encodeUrl: true

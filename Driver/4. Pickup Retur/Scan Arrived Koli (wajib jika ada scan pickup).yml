@@ -1,11 +1,11 @@
 info:
-  name: Status — Start Trip (assigned → on_trip)
+  name: Scan Arrived Koli (wajib jika ada scan pickup)
   type: http
   seq: 4
 
 http:
-  method: PUT
-  url: "{{baseurl}}/api/driver/pickup-retur/RET-2605300001/status"
+  method: POST
+  url: "{{baseurl}}/api/driver/pickup-retur/RET-2605300001/scan/arrived"
   headers:
     - name: Content-Type
       value: application/json
@@ -13,7 +13,8 @@ http:
     type: json
     data: |-
       {
-        "action": "start_trip"
+        "sttNumber": "TESTIT10",
+        "koliId": "TESTIT10-1"
       }
   auth:
     type: bearer
@@ -25,7 +26,4 @@ settings:
   followRedirects: true
   maxRedirects: 5
 
-docs: |-
-  SP: sp_driver_pickup_retur_status_json
-
-  Insert order_trackings: On Process Delivery
+docs: "SP: sp_driver_pickup_retur_scan_koli_json (phase=arrived)"

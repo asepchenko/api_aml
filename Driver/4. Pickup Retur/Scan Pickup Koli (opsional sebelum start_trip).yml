@@ -1,0 +1,32 @@
+info:
+  name: Scan Pickup Koli (opsional sebelum start_trip)
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{baseurl}}/api/driver/pickup-retur/3/scan/pickup"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "sttNumber": "TESTIT10",
+        "koliId": "TESTIT10-2"
+      }
+  auth:
+    type: bearer
+    token: "{{token}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |-
+  SP: sp_driver_pickup_retur_scan_koli_json (phase=pickup)
+
+  Opsional. Jika dilakukan, maka sebelum arrived wajib scan arrived.

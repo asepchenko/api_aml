@@ -5,8 +5,10 @@ info:
 
 http:
   method: GET
-  url: "{{base_url}}/driver/pickup-retur/{{pickup_retur_id}}"
-  auth: inherit
+  url: "{{baseurl}}/api/driver/pickup-retur/RET-2605300001"
+  auth:
+    type: bearer
+    token: "{{token}}"
 
 settings:
   encodeUrl: true
