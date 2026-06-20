@@ -5,13 +5,13 @@ info:
 
 http:
   method: POST
-  url: "{{baseurl}}/api/driver/delivery/32/scan/koli"
+  url: "{{baseurl}}/api/driver/delivery/56/scan/koli"
   body:
     type: json
     data: |-
       {
-        "sttNumber": "A0037908",
-        "koliId": "A0037908-1"
+        "sttNumber": "A0038302",
+        "koliId": "A0038302-1"
       }
   auth:
     type: bearer

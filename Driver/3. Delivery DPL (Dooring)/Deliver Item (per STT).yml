@@ -1,7 +1,7 @@
 info:
   name: Deliver Item (per STT)
   type: http
-  seq: 1
+  seq: 5
 
 http:
   method: POST
@@ -15,6 +15,7 @@ http:
       {
         "recipient": "Budi Santoso",
         "description": "Diterima lengkap",
+        "photo_base64": "{{photo_base64}}",
         "scan_code": "COLLY-001",
         "scan_lat": -6.2,
         "scan_lng": 106.8,
@@ -33,4 +34,6 @@ settings:
 docs: |-
   SP: sp_driver_delivery_deliver_item_json
 
-  Wajib: recipient. Ulangi per STT sampai dpl_status = Delivered.
+  Wajib: recipient. Opsional: photo_base64 (raw base64), description, scan_code/lat/lng/device.
+
+  Ulangi per STT (setelah scan koli lengkap) sampai dpl_status = Delivered.
