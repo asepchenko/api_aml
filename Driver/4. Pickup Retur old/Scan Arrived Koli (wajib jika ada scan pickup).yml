@@ -1,11 +1,11 @@
 info:
   name: Scan Arrived Koli (wajib jika ada scan pickup)
   type: http
-  seq: 6
+  seq: 4
 
 http:
   method: POST
-  url: "{{base_url}}/driver/pickup-retur/{{pickup_retur_id}}/scan/arrived"
+  url: "{{baseurl}}/api/driver/pickup-retur/RET-2605300001/scan/arrived"
   headers:
     - name: Content-Type
       value: application/json
@@ -13,10 +13,12 @@ http:
     type: json
     data: |-
       {
-        "sttNumber": "{{stt_number}}",
-        "koliId": "{{koli_id}}"
+        "sttNumber": "TESTIT10",
+        "koliId": "TESTIT10-1"
       }
-  auth: inherit
+  auth:
+    type: bearer
+    token: "{{token}}"
 
 settings:
   encodeUrl: true

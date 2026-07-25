@@ -1,0 +1,28 @@
+info:
+  name: Status — Start Trip (legacy)
+  type: http
+  seq: 5
+
+http:
+  method: PUT
+  url: "{{base_url}}/driver/pickup-retur/{{pickup_retur_id}}/status"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "action": "start_trip",
+        "city_name": "Bandung",
+        "last_location": "Gudang Agent ABC"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: Legacy — prefer POST confirm-pickup

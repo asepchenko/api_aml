@@ -1,0 +1,34 @@
+info:
+  name: Arrive HO (on_trip → arrived)
+  type: http
+  seq: 7
+
+http:
+  method: POST
+  url: "{{base_url}}/driver/pickup-retur/{{pickup_retur_id}}/arrive-ho"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "city_name": "Jakarta",
+        "last_location": "Gudang HO Jakarta",
+        "photo_base64": "{{photo_base64}}",
+        "notes": "Barang diterima di gudang HO"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |-
+  Realisasi barang sampai gudang HO.
+
+  Insert order_trackings: Transit + last_location/last_city + photo_base64 (opsional).
+
+  Alternatif legacy: PUT .../status { action: arrived }.

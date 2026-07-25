@@ -5,10 +5,21 @@ info:
 
 http:
   method: GET
-  url: "{{baseurl}}/api/driver/pickup-retur/RET-2605300001"
-  auth:
-    type: bearer
-    token: "{{token}}"
+  url: "{{base_url}}/driver/pickup-retur/{{pickup_retur_id}}"
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: "const json = res.getBody();\r
+
+        if (json.data && json.data.items && json.data.items[0]) {\r
+
+        \  const item = json.data.items[0];\r
+
+        \  if (item.awb_no) pm.collectionVariables.set('stt_number', item.awb_no);\r
+
+        }"
 
 settings:
   encodeUrl: true

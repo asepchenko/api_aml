@@ -1,7 +1,7 @@
 info:
   name: 2. Pickup Request
   type: folder
-  seq: 19
+  seq: 3
 
 request:
   auth: inherit

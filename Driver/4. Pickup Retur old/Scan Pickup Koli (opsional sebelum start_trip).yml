@@ -5,7 +5,7 @@ info:
 
 http:
   method: POST
-  url: "{{base_url}}/driver/pickup-retur/{{pickup_retur_id}}/scan/pickup"
+  url: "{{baseurl}}/api/driver/pickup-retur/3/scan/pickup"
   headers:
     - name: Content-Type
       value: application/json
@@ -13,10 +13,12 @@ http:
     type: json
     data: |-
       {
-        "sttNumber": "{{stt_number}}",
-        "koliId": "{{koli_id}}"
+        "sttNumber": "TESTIT10",
+        "koliId": "TESTIT10-2"
       }
-  auth: inherit
+  auth:
+    type: bearer
+    token: "{{token}}"
 
 settings:
   encodeUrl: true

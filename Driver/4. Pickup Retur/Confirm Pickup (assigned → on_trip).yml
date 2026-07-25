@@ -1,0 +1,36 @@
+info:
+  name: Confirm Pickup (assigned → on_trip)
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{base_url}}/driver/pickup-retur/{{pickup_retur_id}}/confirm-pickup"
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "city_name": "Bandung",
+        "last_location": "Gudang Agent ABC, Jl. Contoh No.1",
+        "photo_base64": "{{photo_base64}}",
+        "notes": "Dokumen STT dari agent diterima",
+        "latitude": -6.914744,
+        "longitude": 107.609810
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+docs: |-
+  Konfirmasi barang sudah di-pickup dari agent & masuk armada.
+
+  Insert order_trackings: On Process Delivery + last_location/last_city + photo_base64 (opsional).
+
+  Alternatif legacy: PUT .../status { action: start_trip }.
