@@ -5,7 +5,7 @@ info:
 
 http:
   method: POST
-  url: "{{base_url}}/driver/pickup-retur/{{pickup_retur_id}}/confirm-pickup"
+  url: "{{baseurl}}/api/driver/pickup-retur/RET-2607250001/confirm-pickup"
   headers:
     - name: Content-Type
       value: application/json
@@ -13,14 +13,16 @@ http:
     type: json
     data: |-
       {
-        "city_name": "Bandung",
+        "city_name": "Medan",
         "last_location": "Gudang Agent ABC, Jl. Contoh No.1",
         "photo_base64": "{{photo_base64}}",
         "notes": "Dokumen STT dari agent diterima",
         "latitude": -6.914744,
         "longitude": 107.609810
       }
-  auth: inherit
+  auth:
+    type: bearer
+    token: "{{token}}"
 
 settings:
   encodeUrl: true

@@ -5,7 +5,7 @@ info:
 
 http:
   method: PUT
-  url: "{{base_url}}/driver/pickup-retur/{{pickup_retur_id}}/status"
+  url: "{{baseurl}}/api/driver/pickup-retur/RET-2607250001/status"
   headers:
     - name: Content-Type
       value: application/json
@@ -17,7 +17,9 @@ http:
         "city_name": "Bandung",
         "last_location": "Gudang Agent ABC"
       }
-  auth: inherit
+  auth:
+    type: bearer
+    token: "{{token}}"
 
 settings:
   encodeUrl: true
